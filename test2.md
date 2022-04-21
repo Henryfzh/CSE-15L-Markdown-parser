@@ -1,2 +1,2 @@
-[Google](https://www.google.com/)
+[Google]()
 [Microsoft]()
