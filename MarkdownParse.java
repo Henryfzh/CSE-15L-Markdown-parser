@@ -12,8 +12,13 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
-            if (currentIndex > markdown.lastIndexOf(")")){
-                System.out.println("')' is missing");
+            if (currentIndex > markdown.lastIndexOf(")") 
+                    && markdown.lastIndexOf(")") == currentIndex -1){
+                if(markdown.substring(currentIndex, markdown.length()).isBlank()){
+                    System.out.println("Empty line at the end");
+                }else{
+                    System.out.println("')' is missing");
+                }
                 break;
             }
             int openBracket = markdown.indexOf("[", currentIndex);
