@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+import javax.security.auth.login.CredentialException;
+
 public class MarkdownParse {
 
     public static ArrayList<String> getLinks(String markdown) {
