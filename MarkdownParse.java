@@ -12,21 +12,19 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
-            if (currentIndex > markdown.lastIndexOf(")") 
-                    && markdown.lastIndexOf(")") == currentIndex -1){
-                if(markdown.substring(currentIndex, markdown.length()).isBlank()){
-                    System.out.println("Empty line at the end");
-                }else{
-                    System.out.println("')' is missing");
-                }
-                break;
             
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+
+            // break if there is a missing sign
+            if (openBracket < 0 || closeBracket < 0 || openParen < 0 || 
+                closeParen < 0) {
+                break;
+            }
 		
-	    // To handle if the link is empty
+	        // To handle if the link is empty
             if (markdown.substring(openParen + 1, closeParen).isEmpty()){
                 System.out.println("The link is empty");
                 break;
@@ -34,10 +32,11 @@ public class MarkdownParse {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             currentIndex = closeParen + 1;
-            }}
+            }
+        
 
         return toReturn;
-    }
+        }
 
 
     public static void main(String[] args) throws IOException {
