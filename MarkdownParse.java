@@ -20,11 +20,13 @@ public class MarkdownParse {
                     System.out.println("')' is missing");
                 }
                 break;
-            }
+            
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+		
+	    // To handle if the link is empty
             if (markdown.substring(openParen + 1, closeParen).isEmpty()){
                 System.out.println("The link is empty");
                 break;
@@ -32,7 +34,7 @@ public class MarkdownParse {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             currentIndex = closeParen + 1;
-            }
+            }}
 
         return toReturn;
     }
