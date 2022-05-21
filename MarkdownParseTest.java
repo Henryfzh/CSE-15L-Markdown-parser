@@ -19,10 +19,10 @@ public class MarkdownParseTest {
     @Test
     public void testfile() throws IOException {
         MarkdownParse m = new MarkdownParse();
-        Path path = Path.of("test-file.md");
+        Path path = Path.of("snippet1.md");
         String content = Files.readString(path);
         List<String> links = m.getLinks(content);
-        List<String>linkList = List.of("https://something.com, some-thing.html");
+        List<String>linkList = List.of("[url.com, 'google.com, google.com, ucsd.edu]");
         assertEquals(linkList.toString(), links.toString());
         
     }
