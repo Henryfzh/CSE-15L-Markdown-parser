@@ -1,1 +1,1 @@
-<h1>Foo</h1>
+_foo [bar_](/url)
