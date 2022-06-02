@@ -1,2 +1,1 @@
-<pre><code>foo
-</code></pre>
+[link](foo(and(bar))
